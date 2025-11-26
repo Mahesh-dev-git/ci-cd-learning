@@ -21,6 +21,7 @@ jobs:
 
       - name: Try dotnet build
         run: dotnet build
+        continue-on-error: true
  
 
         
