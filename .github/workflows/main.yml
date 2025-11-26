@@ -15,3 +15,7 @@ jobs:
 
       - name: Say hello from CI
         run: echo "CI Pipeline is working for Mahesh!"
+
+      - name: Show .NET version
+        run: dotnet --version
+
