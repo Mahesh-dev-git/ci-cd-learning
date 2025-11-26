@@ -19,4 +19,11 @@ jobs:
       - name: Show .NET version
         run: dotnet --version
 
+      - name: Try dotnet build
+        run: dotnet build
+ 
+
+        
+
+
 
