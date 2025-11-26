@@ -19,7 +19,4 @@ jobs:
       - name: Show .NET version
         run: dotnet --version
 
-      - name: Force an error
-        run: exit 1
-
 
