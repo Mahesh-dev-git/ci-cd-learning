@@ -165,7 +165,7 @@ jobs:
           echo "Build generated on $(date)" >> build-output/app.txt
 
       - name: Uploading build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: mahesh-build-artifact
           path: build-output
