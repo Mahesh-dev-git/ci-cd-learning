@@ -127,6 +127,39 @@ jobs:
           echo "👉 Displaying first few lines of the file"
           head -5 sample.txt
 
+      - name: Environment variables practice
+        run: |
+          echo "👉 Printing simple environment variables"
+          echo "USER = $USER"
+          echo "HOME = $HOME"
+          echo "SHELL = $SHELL"
+
+          echo ""
+          echo "👉 Creating a temporary environment variable"
+          MY_NAME="Mahesh"
+          echo "My name is: $MY_NAME"
+
+          echo ""
+          echo "👉 Using PATH variable"
+          echo "PATH = $PATH"
+
+          echo ""
+          echo "👉 Adding a new folder to PATH"
+          export PATH=$PATH:/home/runner/my-tools
+          echo "New PATH = $PATH"
+
+      - name: Environment variables using 'env:' block
+        env:
+          CITY: "Bangalore"
+          ROLE: "DevOps Learner"
+        run: |
+          echo "👉 Using env block variables"
+          echo "City = $CITY"
+          echo "Role = $ROLE"
+
+
+      
+
 
 
 
