@@ -94,6 +94,40 @@ jobs:
           echo "👉 Showing last 2 lines of log file using tail"
           tail -n 2 app.log
 
+      - name: Linux install and network tools practice
+        run: |
+          echo "👉 Updating package list"
+          sudo apt-get update -y
+
+          echo ""
+          echo "👉 Installing unzip"
+          sudo apt-get install -y unzip
+
+          echo ""
+          echo "👉 Installing curl"
+          sudo apt-get install -y curl
+
+          echo ""
+          echo "👉 Checking curl version"
+          curl --version | head -3
+
+          echo ""
+          echo "👉 Making a web request with curl"
+          curl -I https://google.com
+
+          echo ""
+          echo "👉 Downloading a file using wget"
+          wget https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-text-file.txt
+
+          echo ""
+          echo "👉 Showing downloaded file"
+          ls -l sample-text-file.txt
+
+          echo ""
+          echo "👉 Displaying first few lines of the file"
+          head -5 sample-text-file.txt
+
+
 
 
  
