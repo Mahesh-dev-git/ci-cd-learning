@@ -70,6 +70,31 @@ jobs:
           echo "👉 Running the script"
           ./script.sh
 
+      - name: Linux processes and logs practice
+        run: |
+          echo "👉 Checking running processes"
+          ps aux | head -10
+
+          echo ""
+          echo "👉 Checking memory usage"
+          free -h
+
+          echo ""
+          echo "👉 Checking disk usage"
+          df -h
+
+          echo ""
+          echo "👉 Creating a fake log file"
+          echo "Line 1 - Starting application" > app.log
+          echo "Line 2 - Loading modules" >> app.log
+          echo "Line 3 - Connecting to database" >> app.log
+          echo "Line 4 - App running..." >> app.log
+
+          echo ""
+          echo "👉 Showing last 2 lines of log file using tail"
+          tail -n 2 app.log
+
+
 
  
 
