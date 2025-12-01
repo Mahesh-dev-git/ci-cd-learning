@@ -48,6 +48,29 @@ jobs:
           echo "👉 Listing files again to see demo-folder and message.txt:"
           ls -la
 
+      - name: Linux permissions practice
+        run: |
+          echo "👉 Creating a script file"
+          echo "#!/bin/bash" > script.sh
+          echo "echo 'Hello Mahesh from executable script!'" >> script.sh
+
+          echo ""
+          echo "👉 Listing file permissions before chmod"
+          ls -l script.sh
+
+          echo ""
+          echo "👉 Adding execute permission to script.sh"
+          chmod +x script.sh
+
+          echo ""
+          echo "👉 Listing file permissions after chmod"
+          ls -l script.sh
+
+          echo ""
+          echo "👉 Running the script"
+          ./script.sh
+
+
  
 
         
