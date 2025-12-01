@@ -157,6 +157,20 @@ jobs:
           echo "City = $CITY"
           echo "Role = $ROLE"
 
+      - name: Creating build output folder
+        run: |
+          echo "👉 Creating build folder"
+          mkdir build-output
+          echo "Hello Mahesh, this is your build file!" > build-output/app.txt
+          echo "Build generated on $(date)" >> build-output/app.txt
+
+      - name: Uploading build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: mahesh-build-artifact
+          path: build-output
+
+
 
       
 
