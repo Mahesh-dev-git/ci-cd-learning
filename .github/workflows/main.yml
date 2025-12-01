@@ -121,11 +121,11 @@ jobs:
 
           echo ""
           echo "👉 Showing downloaded file"
-          ls -l sample-text-file.txt
+          ls -l sample.txt
 
           echo ""
           echo "👉 Displaying first few lines of the file"
-          head -5 sample-text-file.txt
+          head -5 sample.txt
 
 
 
