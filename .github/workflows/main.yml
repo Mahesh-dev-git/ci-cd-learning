@@ -22,6 +22,32 @@ jobs:
       - name: Try dotnet build
         run: dotnet build
         continue-on-error: true
+
+      - name: Linux basics practice
+        run: |
+          echo "👉 Current directory:"
+          pwd
+
+          echo ""
+          echo "👉 Listing files in this directory:"
+          ls -la
+
+          echo ""
+          echo "👉 Creating a new folder called demo-folder"
+          mkdir demo-folder
+
+          echo ""
+          echo "👉 Creating a text file called message.txt"
+          echo "Hello Mahesh from inside the Linux runner!" > message.txt
+
+          echo ""
+          echo "👉 Showing the content of message.txt"
+          cat message.txt
+
+          echo ""
+          echo "👉 Listing files again to see demo-folder and message.txt:"
+          ls -la
+
  
 
         
