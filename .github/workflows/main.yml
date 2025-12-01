@@ -117,7 +117,7 @@ jobs:
 
           echo ""
           echo "👉 Downloading a file using wget"
-          wget https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-text-file.txt
+          wget https://raw.githubusercontent.com/github/gitignore/main/README.md -O sample.txt
 
           echo ""
           echo "👉 Showing downloaded file"
