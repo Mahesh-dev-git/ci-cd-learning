@@ -1,0 +1,185 @@
+name: First CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Say hello from CI
+        run: echo "CI Pipeline is working for Mahesh!"
+
+      - name: Show .NET version
+        run: dotnet --version
+
+      - name: Try dotnet build
+        run: dotnet build
+        continue-on-error: true
+
+      - name: Linux basics practice
+        run: |
+          echo "👉 Current directory:"
+          pwd
+
+          echo ""
+          echo "👉 Listing files in this directory:"
+          ls -la
+
+          echo ""
+          echo "👉 Creating a new folder called demo-folder"
+          mkdir demo-folder
+
+          echo ""
+          echo "👉 Creating a text file called message.txt"
+          echo "Hello Mahesh from inside the Linux runner!" > message.txt
+
+          echo ""
+          echo "👉 Showing the content of message.txt"
+          cat message.txt
+
+          echo ""
+          echo "👉 Listing files again to see demo-folder and message.txt:"
+          ls -la
+
+      - name: Linux permissions practice
+        run: |
+          echo "👉 Creating a script file"
+          echo "#!/bin/bash" > script.sh
+          echo "echo 'Hello Mahesh from executable script!'" >> script.sh
+
+          echo ""
+          echo "👉 Listing file permissions before chmod"
+          ls -l script.sh
+
+          echo ""
+          echo "👉 Adding execute permission to script.sh"
+          chmod +x script.sh
+
+          echo ""
+          echo "👉 Listing file permissions after chmod"
+          ls -l script.sh
+
+          echo ""
+          echo "👉 Running the script"
+          ./script.sh
+
+      - name: Linux processes and logs practice
+        run: |
+          echo "👉 Checking running processes"
+          ps aux | head -10
+
+          echo ""
+          echo "👉 Checking memory usage"
+          free -h
+
+          echo ""
+          echo "👉 Checking disk usage"
+          df -h
+
+          echo ""
+          echo "👉 Creating a fake log file"
+          echo "Line 1 - Starting application" > app.log
+          echo "Line 2 - Loading modules" >> app.log
+          echo "Line 3 - Connecting to database" >> app.log
+          echo "Line 4 - App running..." >> app.log
+
+          echo ""
+          echo "👉 Showing last 2 lines of log file using tail"
+          tail -n 2 app.log
+
+      - name: Linux install and network tools practice
+        run: |
+          echo "👉 Updating package list"
+          sudo apt-get update -y
+
+          echo ""
+          echo "👉 Installing unzip"
+          sudo apt-get install -y unzip
+
+          echo ""
+          echo "👉 Installing curl"
+          sudo apt-get install -y curl
+
+          echo ""
+          echo "👉 Checking curl version"
+          curl --version | head -3
+
+          echo ""
+          echo "👉 Making a web request with curl"
+          curl -I https://google.com
+
+          echo ""
+          echo "👉 Downloading a file using wget"
+          wget https://raw.githubusercontent.com/github/gitignore/main/README.md -O sample.txt
+
+          echo ""
+          echo "👉 Showing downloaded file"
+          ls -l sample.txt
+
+          echo ""
+          echo "👉 Displaying first few lines of the file"
+          head -5 sample.txt
+
+      - name: Environment variables practice
+        run: |
+          echo "👉 Printing simple environment variables"
+          echo "USER = $USER"
+          echo "HOME = $HOME"
+          echo "SHELL = $SHELL"
+
+          echo ""
+          echo "👉 Creating a temporary environment variable"
+          MY_NAME="Mahesh"
+          echo "My name is: $MY_NAME"
+
+          echo ""
+          echo "👉 Using PATH variable"
+          echo "PATH = $PATH"
+
+          echo ""
+          echo "👉 Adding a new folder to PATH"
+          export PATH=$PATH:/home/runner/my-tools
+          echo "New PATH = $PATH"
+
+      - name: Environment variables using 'env:' block
+        env:
+          CITY: "Bangalore"
+          ROLE: "DevOps Learner"
+        run: |
+          echo "👉 Using env block variables"
+          echo "City = $CITY"
+          echo "Role = $ROLE"
+
+      - name: Creating build output folder
+        run: |
+          echo "👉 Creating build folder"
+          mkdir build-output
+          echo "Hello Mahesh, this is your build file!" > build-output/app.txt
+          echo "Build generated on $(date)" >> build-output/app.txt
+
+      - name: Uploading build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mahesh-build-artifact
+          path: build-output
+
+
+
+      
+
+
+
+
+ 
+
+        
+
+
+
